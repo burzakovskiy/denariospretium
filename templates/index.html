@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Denario Research</title>
+ 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<link rel='shortcut icon' type='image/x-icon' href='../static/images/favicon.ico' />
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="../static/stylesheets/style.css">
+<link href="../static/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../static/stylesheets/magnific-popup.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js'></script>
+   
+    
+  </head>
+  <body id="page-top">
+   <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Denario Research</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#forecast">Forecast</a>
+                    </li>
+                     <li>
+                        <a class="page-scroll" href="#how">How?</a>
+                    </li>
+                    <li>
+                        <a href =# data-toggle="modal" data-target="#terms">Terms</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    
+    <section class="bg-primary" id="forecast">
+        <div class="container">
+            <div class="row text-center">
+           		 <h2 class="section-heading">DASHBTC forecast</h2>
+                 <hr class="primary">
+                <div class="col-sm-12 col-md-8 ">
+                 <div id="curve_chart" style="height:400px"></div>
+                </div>
+                 <div class="col-sm-12 col-md-4 ">
+              	  <a class="twitter-timeline" href="https://twitter.com/hashtag/dash" data-widget-id="847400652619751424">#dash tweets</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            	</div>
+             </div>
+        </div>
+    </section>
+    <section class="bg-lite" id="how">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="section-heading">How price is forecasted?</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row text-center">
+  <p>We apply sophisticated machine learning algorythms to historical price movements. That allows us to build price forecast for the next 24 hours.
+   Currently our forecast accuracy equals to 0.9785 and SE - 2.8245850332e-06</p>
+
+            </div>
+        </div>
+    </section>
+
+<div class="modal fade" id="terms" tabindex="-1" role="dialog" aria-labelledby="terms">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h5 class="modal-title" id="terms"><strong>Terms of use</strong></h5>
+			</div>
+			<div class="modal-body">
+				<p>1. Forecasted price is based on mathematical calculations and may eventually be different from real number. </p>
+				<p>2. Forecasted price is provided for information purposes only. </p>
+				<p>3. This resource does not give any investment advice. </p>
+				<p>4. User is solely responsible for any profit and loss that occured after visiting this resource. </p>
+				<p>5. Crypto currencies are unregulated, high volatility and low liquid assets. User should not invest in crypto currencies more than he can afford to lose.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+  </body>
+ <script type='text/javascript' src='../static/scripts/index.js'> </script>
+</html>

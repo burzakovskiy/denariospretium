@@ -1,45 +1,46 @@
-# Copyright 2015 IBM Corp. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# https://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 
 import os
-from flask import Flask, jsonify
+import socketio
+import eventlet
+import eventlet.wsgi
+from flask import Flask, jsonify, render_template
+from regression import Regression
+import threading
 
+pair = 'BTC_DASH'
+sio = socketio.Server()
 app = Flask(__name__)
+
+regression = Regression(pair)
+regression.init_model()
+
+def run():
+	regression.predict()
+	sio.emit('data', regression.result)
+	threading.Timer(int(regression.period), run).start()
+run()	
 
 @app.route('/')
 def Welcome():
-    return app.send_static_file('index.html')
+    return render_template('index.html')
 
-@app.route('/myapp')
-def WelcomeToMyapp():
-    return 'Welcome again to my app running on Bluemix!'
-
-@app.route('/api/people')
-def GetPeople():
-    list = [
-        {'name': 'John', 'age': 28},
-        {'name': 'Bill', 'val': 26}
-    ]
-    return jsonify(results=list)
-
-@app.route('/api/people/<name>')
-def SayHello(name):
-    message = {
-        'message': 'Hello ' + name
-    }
-    return jsonify(results=message)
-
+#@sio.on('connect')
+#def connect(sid, environ):
+#	print("connect ", sid)
+#    
+#@sio.on('disconnect')
+#def disconnect(sid):
+#    print('disconnect ', sid)
+    
+@sio.on('get_data')
+def send_data(sid, data):
+	sio.emit('data', regression.result)
+	print('received ',data)
+	
 port = os.getenv('PORT', '5000')
 if __name__ == "__main__":
-	app.run(host='0.0.0.0', port=int(port))
+	app = socketio.Middleware(sio, app)
+	eventlet.wsgi.server(eventlet.listen(('', int(port))), app)
+#	app.run(host='0.0.0.0', port=int(port))
+	
+
