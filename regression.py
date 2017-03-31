@@ -11,7 +11,6 @@ class Regression:
 	def __init__(self, pair):
 		self.pair = pair
 		self.period = '7200'
-#		self.train_df = pd.read_csv(pair+'_proc.csv', index_col=0)
 		self.clf = LinearRegression()
 		self.result={}
 		

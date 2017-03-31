@@ -7,40 +7,36 @@ from flask import Flask, jsonify, render_template
 from regression import Regression
 import threading
 
-pair = 'BTC_DASH'
+pairs = ['BTC_DASH', 'BTC_ETH','BTC_XMR']
+predictions={'BTC_DASH':{},'BTC_ETH':{}, 'BTC_XMR':{}}
 sio = socketio.Server()
 app = Flask(__name__)
 
-regression = Regression(pair)
-regression.init_model()
+regressions = [Regression(pair) for pair in pairs]
+for regression in regressions:
+	regression.init_model() 
 
 def run():
-	regression.predict()
-	sio.emit('data', regression.result)
-	threading.Timer(int(regression.period), run).start()
+	for regression in regressions:
+		regression.predict()
+		predictions[regression.pair]= regression.result
+	sio.emit('data', predictions)
+	threading.Timer(int(regressions[0].period), run).start()
 run()	
 
 @app.route('/')
 def Welcome():
     return render_template('index.html')
 
-#@sio.on('connect')
-#def connect(sid, environ):
-#	print("connect ", sid)
-#    
-#@sio.on('disconnect')
-#def disconnect(sid):
-#    print('disconnect ', sid)
     
 @sio.on('get_data')
 def send_data(sid, data):
-	sio.emit('data', regression.result)
+	sio.emit('data', predictions)
 	print('received ',data)
 	
 port = os.getenv('PORT', '5000')
 if __name__ == "__main__":
 	app = socketio.Middleware(sio, app)
 	eventlet.wsgi.server(eventlet.listen(('', int(port))), app)
-#	app.run(host='0.0.0.0', port=int(port))
 	
 
