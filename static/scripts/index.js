@@ -126,5 +126,9 @@ function getPairNameByID(id){
 			return "ETHBTC";
 		case "BTC_XMR":
 			return "XMRBTC";
+		case "BTC_LTC":
+			return "LTCBTC";
+		case "BTC_XRP":
+			return "XRPBTC";
 	}
 }
