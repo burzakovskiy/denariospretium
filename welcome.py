@@ -7,8 +7,8 @@ from flask import Flask, jsonify, render_template
 from regression import Regression
 import threading
 
-pairs = ['BTC_DASH', 'BTC_ETH','BTC_XMR']
-predictions={'BTC_DASH':{},'BTC_ETH':{}, 'BTC_XMR':{}}
+pairs = ['BTC_DASH', 'BTC_ETH','BTC_XMR','BTC_LTC','BTC_XRP']
+predictions={'BTC_DASH':{},'BTC_ETH':{}, 'BTC_XMR':{},'BTC_LTC':{},'BTC_XRP':{}}
 sio = socketio.Server()
 app = Flask(__name__)
 

@@ -52,6 +52,15 @@ function updateTwitterFeed(pair){
 			link.setAttribute("href", "https://twitter.com/hashtag/Monero");
 			link.setAttribute("data-widget-id", "847757181776736256");
 			break;
+		case "BTC_LTC":
+			link.setAttribute("href", "https://twitter.com/hashtag/Litecoin");
+			link.setAttribute("data-widget-id", "857671495660838912");
+			break;
+		case "BTC_XRP":
+			link.setAttribute("href", "https://twitter.com/hashtag/Ripple");
+			link.setAttribute("data-widget-id", "857672106997407748");
+			break;
+		
 	}
 	wrap.appendChild(link);
 	!function(d,s,id){
