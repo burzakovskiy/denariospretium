@@ -1,7 +1,9 @@
 var socket = io();
 
 var pair = "BTC_DASH";
-var chartData={};
+var inputData={};
+
+
 google.charts.load('current', {'packages':['corechart']});
 
 
@@ -11,10 +13,11 @@ socket.on('connect', function() {
 });
 
 socket.on('data', function(data){
-	 chartData = data;
+	 inputData = data;
 	 document.getElementById("pairHeader").innerHTML =getPairNameByID(pair)+" price forecast" ;
 	 updateTwitterFeed(pair);
-	 createChart(chartData[pair]);
+	 updateSentimentData(pair);
+	 createChart(inputData[pair]['predictions']);
 });
 
 
@@ -22,8 +25,17 @@ function updatePair(input){
 	pair= input;
 	document.getElementById("pairHeader").innerHTML =getPairNameByID(pair)+" price forecast" ;
 	updateTwitterFeed(pair);
-	createChart(chartData[pair]);
+	updateSentimentData(pair);
+	createChart(inputData[pair]['predictions']);
 }
+
+
+function updateSentimentData(pair){
+	document.getElementById("sentiment-negative").innerHTML=inputData[pair]['sentiments']['negative']+"%";
+	document.getElementById("sentiment-neutral").innerHTML=inputData[pair]['sentiments']['neutral']+"%";
+	document.getElementById("sentiment-positive").innerHTML=inputData[pair]['sentiments']['positive']+"%";
+}
+
 
 function updateTwitterFeed(pair){
 	var wrap = document.getElementById("twitterWrapper");
@@ -35,7 +47,7 @@ function updateTwitterFeed(pair){
 		var c= document.getElementById("twitter-wjs");
 		p.removeChild(c);
 	}
-	
+
 	var link = document.createElement("a");
 	link.setAttribute("class", "twitter-timeline");
 	switch(pair){

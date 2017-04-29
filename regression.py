@@ -53,6 +53,7 @@ class Regression:
 		self.result = df_result['prediction'].to_dict()
 		
 		
+		
 	
 
 		

@@ -14,7 +14,7 @@
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="../static/stylesheets/style.css">
-<link href="../static/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!--<link href="../static/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
 <link href="../static/stylesheets/magnific-popup.css" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
@@ -66,7 +66,7 @@
     <section class="bg-primary" id="forecast">
         <div class="container">
             <div class="row text-center">
-            	<iframe data-aa='499357' src='//ad.a-ads.com/499357?size=728x90' scrolling='no' style='width:728px; height:90px; border:0px; padding:0;overflow:hidden' allowtransparency='true'></iframe>
+
             	<div>
             		<div class="btn-group btn-group-justified" role="group" aria-label="...">
 						 <a role="button" class="btn btn-default" onclick="updatePair('BTC_DASH')">DASHBTC</a>
@@ -80,25 +80,54 @@
 	           			<h2 class="section-heading" id="pairHeader"></h2>
 	                	<hr class="primary">
 		                <div class="col-sm-12 col-md-8 ">
+		                	<div>
 		                	<div id="curve_chart" style="height:400px"></div>
-		                </div>
+			                <div>
+	   							<h3 class ="text-center">Twitter sentiments</h3>
+	 							<div class="col-sm-4 text-center text-danger">
+	    							 <h4>Negative</h4>
+	   								 <h3 id="sentiment-negative">0</h3>
+	  							</div>
+								<div class="col-sm-4 text-center text-warning"> 
+									<h4>Neutral</h4>
+								    <h3 id="sentiment-neutral">0</h3>
+								</div>
+								<div class="col-sm-4 text-center text-success">
+									<h4>Positive</h4>
+								 	<h3 id="sentiment-positive">0</h3>
+								</div>
+							</div>
+			                </div>
+		                	</div>
+		                	
 		                <div class="col-sm-12 col-md-4 " id="twitterWrapper"></div>
 	            	 </div>
        			 </div>
     </section>
-    <section class="bg-lite" id="what">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h2 class="section-heading">How price is forecasted?</h2>
+    <section class="bg-lite" id="whclass="col-md-12 text-center">
+                    <h2 class="section-heading
+		                		<h3 class="section-heading" id="pairHeader"></h3>
+	                			<hr class="primary">">What do we do?</h2	>
                     <hr class="primary">
-                </div>
-            </div>
-        </div>
-        <div class="container"
-            <div class="row text-center">
-			  <p>Cryptocurrencies are very lucrative assets. If you consider long term investing they may generate more profit than any other available stock or property. High volatility makes cryptocurrencies interesting for traders who are looking for buy low sell high opportunities. 
-But price forecasting is the hardest thing. Market is in permanent chaotic movements and no one can tell exact number. Price movement it is not absolutely random thing. It depends on many factors like historical behaviour, news, price movement of other assets and so on. The goal of Denario project is to build model that takes into account various factors and predicts with some level of accuracy assests' future price.</p>
+       				                <div>
+		   							<h3 class ="text-center">Twitter sentiments</h3>
+		   							<hr class="primary">
+		 							<div class="col-sm-4 text-center text-danger">
+		    							 <h4>Negative</h4>
+		   								 <h3 id="sentiment-negative">0</h3>
+		  							</div>
+									<div class="col-sm-4 text-center text-warning"> 
+										<h4>Neutral</h4>
+									    <h3 id="sentiment-neutral">0</h3>
+									</div>
+									<div class="col-sm-4 text-center text-success">
+										<h4>Positive</h4>
+									 	<h3 id="sentiment-positive">0</h3>
+									</div>
+								</div>
+ is not absolutely random thing. It depends on many factors like historical behaviour, news, price movement of other assets and so on. The goal of Denario project is to build model that tak
+       		</div>
+       	</div>es into account various factors and predicts with some level of accuracy assests' future price.</p>
 
             </div>
         </div>
@@ -107,7 +136,7 @@ But price forecasting is the hardest thing. Market is in permanent chaotic movem
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h2 class="section-heading">How price is forecasted?</h2>
+                    <h2 class="section-heading">How is the price forecasted?</h2>
                     <hr class="primary">
                 </div>
             </div>
@@ -133,7 +162,7 @@ But price forecasting is the hardest thing. Market is in permanent chaotic movem
         <div class="container">
             <div class="row text-center">
 				<p>Denario is a non profitable project fully financed by its founder. Forecast charts are free forever. But precise forecasting requires more sophisticated machine learning models and more investments. If you find Denario interesting and want to see it better please support project development with BTC donation to address bellow. Thank you.</p>
-				<p>1P5tbRqCUCD25TCsauFrJf6vvYnATAwf1U</p>
+				<p>Bitcoin address <b>1P5tbRqCUCD25TCsauFrJf6vvYnATAwf1U</b></p>
             </div>
         </div>
     </section>
